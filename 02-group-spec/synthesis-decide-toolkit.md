@@ -1,85 +1,72 @@
-# Toolkit — Từ Evidence Đến Build Slice
+# Từ Evidence Đến Build Slice — Hevy Chatbot
 
-Dùng sau khi nhóm đã có evidence. Mục tiêu là chốt một build slice đủ nhỏ cho Day 06.
+## 1. Cụm pain (theo workflow, không theo feature)
 
-## 1. Gom evidence thành cụm
+- "Tôi không biết mình có đang tiến bộ không"
+- "App không nói gì khi tôi bị plateau"
+- "Tôi không biết khi nào nên tăng tạ"
+- "Tôi có data nhưng phải tự copy sang ChatGPT để hỏi"
 
-Gom theo **workflow/pain**, không gom theo tên feature.
+---
 
-Ví dụ cụm tốt:
+## 2. Insight
 
-- "Không biết chọn chuyên khoa"
-- "Không hiểu vì sao bị tính phí"
-- "Muốn sửa output nhưng không có chỗ sửa"
-- "Bot trả lời tự tin nhưng không dẫn nguồn"
-
-## 2. Viết insight
-
-Form:
-
-```text
-User [segment] không chỉ cần [surface need].
-Họ thật ra cần [deeper need],
-vì [evidence pattern].
+```
+User gym thường xuyên không chỉ cần một chỗ lưu số liệu tập luyện.
+Họ thật ra cần lớp ra quyết định trên data đó,
+vì tất cả evidence (review, self-use, workaround ChatGPT) đều cho thấy
+user có data nhưng không biết phải làm gì với nó.
 ```
 
-Ví dụ:
+---
 
-```text
-Người lần đầu đi khám không chỉ cần danh sách chuyên khoa.
-Họ cần hỗ trợ ra quyết định an toàn,
-vì nhiều review/observation cho thấy họ không biết triệu chứng của mình nên đi khoa nào.
+## 3. Opportunity
+
+```
+Cơ hội là dùng AI để augment lớp interpretation trên data Hevy có sẵn,
+giúp user trả lời được câu hỏi "tôi có đang tiến bộ không / khi nào tăng tạ",
+trong khi vẫn kiểm soát failure bằng cách AI luôn dẫn số liệu thực tế kèm theo nhận xét.
 ```
 
-## 3. Viết opportunity
+---
 
-Form:
+## 4. Build slice
 
-```text
-Cơ hội là dùng AI để [augment/automate hành động hẹp],
-giúp user [kết quả],
-trong khi vẫn kiểm soát [failure/risk].
-```
+Build slice đã qua 5 câu hỏi kiểm tra:
 
-## 4. Chọn build slice
-
-Build slice tốt phải qua 5 câu hỏi:
-
-| Câu hỏi | Đạt khi |
+| Câu hỏi | Trả lời |
 |---|---|
-| User cụ thể chưa? | Nói được ai dùng, trong bối cảnh nào. |
-| Task đủ hẹp chưa? | Demo được trong 3-5 phút. |
-| AI decision rõ chưa? | AI gợi ý/tự làm một việc cụ thể. |
-| Failure path rõ chưa? | Có một case AI không chắc hoặc sai để test. |
-| Có evidence không? | Có bằng chứng từ self-use/review/user/competitor. |
+| User cụ thể chưa? | Người tập gym 3-5 buổi/tuần, đã dùng Hevy ≥ 1 tháng, có data lịch sử |
+| Task đủ hẹp chưa? | Chatbot trả lời 3 loại query: progress, plateau detection, muscle gap — demo được trong 3-5 phút |
+| AI decision rõ chưa? | AI phân tích trend từ data thực và đưa ra nhận xét + gợi ý cụ thể |
+| Failure path rõ chưa? | Case AI không đủ data (< 3 buổi) hoặc query quá mơ hồ — hỏi lại |
+| Có evidence không? | Có: App Store review, Reddit, self-use observation, ChatGPT workaround |
 
-## 5. Quyết định: giữ, giảm scope, hay đổi hướng?
+---
 
-| Tình huống | Quyết định |
-|---|---|
-| Evidence yếu, user mơ hồ | Dừng build sâu; quay lại research 20 phút. |
-| Ý tưởng quá rộng | Giữ domain, cắt xuống một flow. |
-| AI không cần thiết | Dùng rule/manual prototype; ghi rõ vì sao không dùng AI sâu. |
-| Rủi ro cao | Chọn augmentation hoặc conditional automation. |
-| Không demo được trong 1 ngày | Đưa phần lớn vào backlog, giữ một path nhỏ. |
+## 5. Quyết định: giữ hướng AI insight layer
 
-## 6. Câu chốt cuối
+Không giảm scope thêm — "trả lời câu hỏi về progress" đã đủ hẹp để demo trong 1 ngày.  
+Loại bỏ: logging bằng chat (friction không giảm đáng kể), gợi ý workout plan (cần data recovery ngoài scope Hevy).
 
-Điền câu này trước khi rời lớp:
+---
 
-```text
-Dựa trên [evidence],
-nhóm sẽ build [prototype slice],
-cho [user],
-để giải quyết [pain],
-bằng cách AI [augment/automate task],
-và sẽ test failure path [failure mode].
+## 6. Câu chốt
+
+```
+Dựa trên evidence từ App Store review, Reddit, và self-use (data có nhưng không actionable),
+nhóm sẽ build prototype chatbot insight layer trên Hevy data,
+cho user gym đã có lịch sử tập ≥ 1 tháng,
+để giải quyết pain "có data nhưng không biết mình đang tiến bộ hay plateau",
+bằng cách AI augment lớp interpretation: trả lời câu hỏi tự nhiên từ data thực,
+và sẽ test failure path: AI không đủ data hoặc query quá mơ hồ để trả lời.
 ```
 
-## 7. Backlog
+---
 
-Những thứ **không build trong Day 06**:
+## 7. Backlog (không build trong Day 06)
 
-- 
-- 
-- 
+- Chatbot logging: gõ workout vào chat thay vì tap UI
+- AI gợi ý workout plan cá nhân hóa (cần fatigue/recovery data)
+- Tích hợp voice input
+- So sánh progress với user khác (cần social data)

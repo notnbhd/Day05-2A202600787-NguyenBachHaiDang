@@ -3,7 +3,7 @@
 ## 1. Track, product/app và user
 
 **Track:** Healthcare  
-**Product/app thật:** Hevy — Workout Tracker  
+**Product/app thật:** Hevy 
 **User cụ thể:** Người tập gym 3-5 buổi/tuần, đã dùng Hevy ≥ 1 tháng, có data lịch sử nhưng không biết cách đọc để ra quyết định tập  
 **Nhóm có phải user thật không?** Có — các thành viên tự dùng Hevy hoặc app workout tương tự; khác ở chỗ nhóm biết đọc biểu đồ, user thông thường thì không.
 

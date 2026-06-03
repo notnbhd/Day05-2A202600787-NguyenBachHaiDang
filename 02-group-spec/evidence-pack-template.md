@@ -4,7 +4,7 @@
 
 **Tên nhóm:** Hevy chatbot  
 **Track:** Healthcare  
-**Product/app đã chọn:** Hevy — Workout Tracker  
+**Product/app đã chọn:** Hevy 
 **Build slice đang nghĩ:** AI insight layer — chatbot trả lời câu hỏi về lịch sử tập bằng ngôn ngữ tự nhiên, dựa trên data Hevy đã có
 
 ---
